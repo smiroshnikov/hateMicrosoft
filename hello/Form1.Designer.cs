@@ -35,6 +35,7 @@ namespace hello
             this.clearbutton = new System.Windows.Forms.Button();
             this.morbus_check = new System.Windows.Forms.CheckBox();
             this.morbusNotifier = new System.Windows.Forms.TextBox();
+            this.userNotifications = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // greetingbutton
@@ -74,7 +75,6 @@ namespace hello
             this.morbus_check.Text = "Enable Borbus?";
             this.morbus_check.UseVisualStyleBackColor = true;
             this.morbus_check.CheckedChanged += new System.EventHandler(this.CheckBox1_CheckedChanged);
-           
             // 
             // morbusNotifier
             // 
@@ -84,11 +84,21 @@ namespace hello
             this.morbusNotifier.TabIndex = 4;
             this.morbusNotifier.TextChanged += new System.EventHandler(this.TextBox2_TextChanged);
             // 
+            // userNotifications
+            // 
+            this.userNotifications.Location = new System.Drawing.Point(219, 254);
+            this.userNotifications.Multiline = true;
+            this.userNotifications.Name = "userNotifications";
+            this.userNotifications.Size = new System.Drawing.Size(389, 65);
+            this.userNotifications.TabIndex = 5;
+            this.userNotifications.TextChanged += new System.EventHandler(this.userNotifications_TextChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.userNotifications);
             this.Controls.Add(this.morbusNotifier);
             this.Controls.Add(this.morbus_check);
             this.Controls.Add(this.clearbutton);
@@ -103,19 +113,29 @@ namespace hello
 
         private void Clearbutton_Click(object sender, EventArgs e)
         {
-            if (morbus_check.Checked is true)
-            {
-                morbus_check.Checked = false;
-                morbusNotifier.Clear();
-                textBox1.Clear();
-                morbusNotifier.Text = "ATTENTION ! Morbus DISABLED and Cleared! ";
-            }
-            else
-            {
-                textBox1.Clear();
-                morbusNotifier.Text = "ATTENTION ! Morbus DISABLED and Cleared! ";
+            //if (morbus_check.Checked is true)
+            //{
+            //    morbus_check.Checked = false;
+            //    morbusNotifier.Clear();
+            //    textBox1.Clear();
+            //    userNotifications.Text = "ATTENTION ! Morbus DISABLED and Cleared! ";
+            //}
+            //else
+            //{
+            //    textBox1.Clear();
+            //    userNotifications.Text = "ATTENTION ! Morbus DISABLED and Cleared! ";
 
-            }
+            //}
+            textBox1.Clear();
+            morbusNotifier.Clear();
+            userNotifications.Text = "ATTENTION ! Morbus DISABLED and Cleared! \n" +
+                "ATTENTION ! Morbus DISABLED and Cleared! \n" +
+                "ATTENTION ! Morbus DISABLED and Cleared! " +
+                "ATTENTION ! Morbus DISABLED and Cleared! \n" +
+                "ATTENTION ! Morbus DISABLED and Cleared! \n";
+
+
+
         }
 
         #endregion
@@ -125,6 +145,7 @@ namespace hello
         private System.Windows.Forms.Button clearbutton;
         private System.Windows.Forms.CheckBox morbus_check;
         private System.Windows.Forms.TextBox morbusNotifier;
+        private System.Windows.Forms.TextBox userNotifications;
     }
 }
 
